@@ -1,2 +1,8 @@
-[customizations.installer]
-skip_bootloader = true
+[customizations.installer.kickstart]
+contents = """
+text
+zerombr
+clearpart --all --initlabel --disklabel=gpt
+autopart --noswap --type=lvm
+network --bootproto=dhcp --device=link --activate --onboot=on
+"""
